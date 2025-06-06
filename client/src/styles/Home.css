@@ -1,0 +1,33 @@
+/* client/src/styles/Home.css */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.home-title {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.home-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #778DA9;
+  color: #E0E1DD;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #357ab8;
+}
