@@ -8,7 +8,7 @@ const EnWordList = () => {
   const navigate = useNavigate();
 
   const fetchWords = async () => {
-    const res = await fetch('http://localhost:3001/api/words?language=EN');
+    const res = await fetch('https://render.com/docs/web-services#port-binding/words?language=EN');
     const data = await res.json();
     const parsedData = data.map((word) => ({
       ...word,
