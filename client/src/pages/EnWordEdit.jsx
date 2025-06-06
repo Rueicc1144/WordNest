@@ -19,7 +19,7 @@ const EnWordEdit = () => {
   useEffect(() => {
     const fetchWord = async () => {
       try {
-        const res = await fetch(`http://localhost:3001/api/words/${id}`);
+        const res = await fetch(`https://render.com/docs/web-services#port-binding/api/words/${id}`);
         if (!res.ok) throw new Error('無法取得資料');
         const data = await res.json();
         setWord(data.word);
