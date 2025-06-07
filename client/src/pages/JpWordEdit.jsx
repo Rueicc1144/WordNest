@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Form.css';
+import API_BASE_URL from '../config';
 
 const posOptions = [
   '名', '自サ', '他サ', '形', '形動', '自五', '他五', '自下一', '他下一',
@@ -20,7 +21,7 @@ const JpWordEdit = () => {
   useEffect(() => {
     const fetchWord = async () => {
       try {
-        const res = await fetch(`https://render.com/docs/web-services#port-binding/api/words/${id}`);
+        const res = await fetch(`${API_BASE_URL}/api/words/${id}`);
         if (!res.ok) throw new Error('無法取得資料');
         const data = await res.json();
         setWord(data.word);
@@ -48,7 +49,7 @@ const JpWordEdit = () => {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:3001/api/words/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/words/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

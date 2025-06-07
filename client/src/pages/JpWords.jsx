@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Form.css';
+import API_BASE_URL from '../config';
 
 const posOptions = [
   '名', '自サ', '他サ', '形', '形動', '自五', '他五', '自下一', '他下一',
@@ -27,9 +28,8 @@ const JpWords = () => {
       alert('請輸入單字與中文意思');
       return;
     }
-
     try {
-      const res = await fetch('https://render.com/docs/web-services#port-binding/api/words', {
+      const res = await fetch(`${API_BASE_URL}/api/words`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

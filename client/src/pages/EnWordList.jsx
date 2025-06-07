@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/WordList.css';
+import API_BASE_URL from '../config';
 
 const EnWordList = () => {
   const [words, setWords] = useState([]);
   const navigate = useNavigate();
 
   const fetchWords = async () => {
-    const res = await fetch('https://render.com/docs/web-services#port-binding/words?language=EN');
+    const res = await fetch(`${API_BASE_URL}/api/words?language=EN`);
     const data = await res.json();
     const parsedData = data.map((word) => ({
       ...word,
@@ -23,8 +24,9 @@ const EnWordList = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('確定要刪除這個單字嗎？')) return;
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     try {
-      const res = await fetch(`http://localhost:3001/api/words/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/words/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) {

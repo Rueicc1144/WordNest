@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Form.css';
+import API_BASE_URL from '../config';
 
 const posOptions = [
   'noun', 'verb', 'adjective', 'adverb',
@@ -21,16 +22,15 @@ const EnWords = () => {
       prev.includes(pos) ? prev.filter((p) => p !== pos) : [...prev, pos]
     );
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!word || !meaning) {
       alert('Please enter both word and meaning.');
       return;
     }
-
+    
     try {
-      const res = await fetch('https://render.com/docs/web-services#port-binding/words', {
+      const res = await fetch(`${API_BASE_URL}/api/words`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

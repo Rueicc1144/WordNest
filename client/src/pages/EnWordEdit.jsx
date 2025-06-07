@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Form.css';
+import API_BASE_URL from '../config';
 
 const posOptions = [
   'noun', 'verb', 'adjective', 'adverb', 'pronoun', 'preposition', 'conjunction', 'interjection'
@@ -19,7 +20,7 @@ const EnWordEdit = () => {
   useEffect(() => {
     const fetchWord = async () => {
       try {
-        const res = await fetch(`https://render.com/docs/web-services#port-binding/api/words/${id}`);
+        const res = await fetch(`${API_BASE_URL}/api/words/${id}`);
         if (!res.ok) throw new Error('無法取得資料');
         const data = await res.json();
         setWord(data.word);

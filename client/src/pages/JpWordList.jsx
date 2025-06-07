@@ -2,13 +2,18 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/WordList.css';
+import API_BASE_URL from '../config';
 
 const JpWordList = () => {
   const [words, setWords] = useState([]);
   const navigate = useNavigate();
 
   const fetchWords = async () => {
+<<<<<<< HEAD
     const res = await fetch('https://render.com/docs/web-services#port-binding/api/words?language=JP');
+=======
+    const res = await fetch(`${API_BASE_URL}/api/words?language=JP`);
+>>>>>>> b484de3 (create config.js include api variable)
     const data = await res.json();
     const parsedData = data.map((word) => ({
       ...word,
@@ -24,7 +29,7 @@ const JpWordList = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('確定要刪除這筆單字嗎？')) return;
     try {
-      const res = await fetch(`http://localhost:3001/api/words/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/words/${id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
