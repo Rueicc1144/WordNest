@@ -24,8 +24,7 @@
 ## 開始使用
 
 1. **Clone 專案**
-2. 請注意將client中串接後端的api改為http://localhost:3001。 
-例https://render.com/docs/web-services#port-binding/api/words=>http://localhost:3001/api/words
+2. 請注意更換.env中 VITE_API_BASE_URL 的url，本地測試使用http://localhost:3001
 
 ```bash
 git clone https://github.com/你的帳號/WordNest.git
