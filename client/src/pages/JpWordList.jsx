@@ -9,11 +9,7 @@ const JpWordList = () => {
   const navigate = useNavigate();
 
   const fetchWords = async () => {
-<<<<<<< HEAD
-    const res = await fetch('https://render.com/docs/web-services#port-binding/api/words?language=JP');
-=======
     const res = await fetch(`${API_BASE_URL}/api/words?language=JP`);
->>>>>>> b484de3 (create config.js include api variable)
     const data = await res.json();
     const parsedData = data.map((word) => ({
       ...word,
