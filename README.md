@@ -27,5 +27,5 @@
 2. 請注意更換.env中 VITE_API_BASE_URL 的url，本地測試使用http://localhost:3001
 
 ```bash
-git clone https://github.com/你的帳號/WordNest.git
+git clone https://github.com/Rueicc1144/WordNest.git
 cd WordNest
